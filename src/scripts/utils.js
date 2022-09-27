@@ -23,3 +23,12 @@ export const getHour = () => {
   const data = new Date();
   return `${data.getHours()}:${data.getMinutes()}`;
 };
+
+export const insertContent = (childEl, contentEl, parentEl) => {
+  const childTag = document.createElement(`${childEl}`);
+  const content = document.createTextNode(`${contentEl}`);
+  const parentTag = document.querySelector(`${parentEl}`);
+
+  childTag.appendChild(content);
+  parentTag.appendChild(childTag);
+};
