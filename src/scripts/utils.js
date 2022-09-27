@@ -21,7 +21,9 @@ export const getDate = () => {
 
 export const getHour = () => {
   const data = new Date();
-  return `${data.getHours()}:${data.getMinutes()}`;
+  return `${data.getHours()}:${
+    data.getMinutes() < 0 ? `0${data.getMinutes()}` : data.getMinutes()
+  }`;
 };
 
 export const insertContent = (childEl, contentEl, parentEl) => {

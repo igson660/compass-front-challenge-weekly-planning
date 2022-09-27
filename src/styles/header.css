@@ -1,0 +1,31 @@
+@import url(./colors.css);
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10px 30px 0;
+  background-color: var(--light-color);
+  box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+  border-radius: 35px;
+}
+
+.title-header__container {
+  max-width: 558px;
+  background-color: var(--light-color-bgColor-title);
+  padding: 12px 200px 12px 24px;
+  gap: 8px;
+  border-radius: 0px 14px 15px 0px;
+}
+
+.title-header__container > p {
+  color: var(--light-color);
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.title-header__container > p > strong {
+  font-size: 1.4rem;
+  line-height: 30px;
+  font-weight: 700;
+}
