@@ -22,7 +22,7 @@ export const getDate = () => {
 export const getHour = () => {
   const data = new Date();
   return `${data.getHours()}:${
-    data.getMinutes() < 0 ? `0${data.getMinutes()}` : data.getMinutes()
+    data.getMinutes() < 10 ? `0${data.getMinutes()}` : data.getMinutes()
   }`;
 };
 
