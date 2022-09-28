@@ -31,6 +31,7 @@ export const insertContent = (childEl, contentEl, parentEl) => {
   const content = document.createTextNode(`${contentEl}`);
   const parentTag = document.querySelector(`${parentEl}`);
 
+  parentTag.innerHTML = "";
   childTag.appendChild(content);
   parentTag.appendChild(childTag);
 };
