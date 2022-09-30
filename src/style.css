@@ -1,10 +1,11 @@
 @import url(./styles/reset.css);
 @import url(./styles/header.css);
 @import url(./styles/colors.css);
+@import url(./styles/form.css);
 
 .bgcolor-red {
-  background-color: var(--light-color-bgColor-red);
+  background-color: var(--light-color-red);
 }
 .bgcolor-green {
-  background-color: var(--light-color-bgColor-green);
+  background-color: var(--light-color-green);
 }

@@ -1,0 +1,55 @@
+@import url(./colors.css);
+
+.form {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.form > input {
+  width: 324px;
+  padding-left: 100px;
+}
+
+.form > select {
+  color: var(--light-color-grey);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url(../assets/down.svg) no-repeat;
+  background-position: 100px center;
+  padding-left: 10px;
+}
+
+.form > input,
+.form > select {
+  font-size: 0.9rem;
+  height: 44px;
+  border-radius: 10px;
+}
+
+#select-weeks {
+  width: 160px;
+  padding-right: 50px;
+}
+
+#select-hours {
+  background-position: 60px center;
+  width: 102px;
+}
+
+.border-green {
+  border: 1px solid var(--light-color-green);
+}
+
+option {
+  border: none;
+}
+
+.form > button {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+

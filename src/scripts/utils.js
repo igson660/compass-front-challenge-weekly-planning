@@ -1,3 +1,5 @@
+const $selector = document.querySelector.bind(document);
+
 export const getDate = () => {
   const fullMonths = [
     "Janeiro",
@@ -26,12 +28,12 @@ export const getHour = () => {
   }`;
 };
 
-export const insertContent = (childEl, contentEl, parentEl) => {
+export const insertContent = (childEl, contentEl, parentEl, rPrecious) => {
   const childTag = document.createElement(`${childEl}`);
   const content = document.createTextNode(`${contentEl}`);
-  const parentTag = document.querySelector(`${parentEl}`);
+  const parentTag = $selector(`${parentEl}`);
 
-  parentTag.innerHTML = "";
+  rPrecious ? (parentTag.innerHTML = "") : false;
   childTag.appendChild(content);
   parentTag.appendChild(childTag);
 };
