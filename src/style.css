@@ -2,7 +2,7 @@
 @import url(./styles/header.css);
 @import url(./styles/colors.css);
 @import url(./styles/form.css);
-@import url(./styles/groupButtons.css);
+@import url(./styles/buttonsGroup.css);
 
 .bgcolor-red {
   background-color: var(--light-color-red);
@@ -12,11 +12,50 @@
   background-color: var(--light-color-green);
 }
 
+main {
+  padding: auto;
+  overflow-y: scroll;
+}
+
 main > div {
   margin-top: 20px;
   display: flex;
+  justify-content: space-around;
 }
 
-div > p {
-  width: 10%;
+#container-hours {
+  width: 95px;
+  height: 75px;
+  box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container-hours > p {
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--light-color-scrollbar);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: var(--dark-color-scrollbar);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-scrollcar-hover);
 }

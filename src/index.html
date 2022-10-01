@@ -41,26 +41,34 @@
       </article>
     </header>
     <form class="form">
-      <input type="text" placeholder="Atividade" class="border-green" />
+      <input
+        type="text"
+        placeholder="Atividade"
+        class="border-green"
+        id="input-task"
+      />
       <select name="weeks" id="select-weeks" class="border-green"></select>
       <select name="hours" id="select-hours" class="border-green">
         <option selected>00h12m</option>
       </select>
-      <button class="bgcolor-green buttons">
+      <button class="bgcolor-green buttons" id="add-task">
         <i class="fa-regular fa-plus"></i>
         Adicionar Atividade
       </button>
-      <button class="bgcolor-red buttons">
+      <button class="bgcolor-red buttons" id="delete-task">
         <i class="fa-solid fa-minus"></i>
         Excluir Atividade
       </button>
     </form>
     <main>
       <div>
-        <p>Horário</p>
+        <div id="container-hours">
+          <p>Horário</p>
+        </div>
         <div id="buttons-group"></div>
       </div>
-      <table></table>
+      <section id="section-hours"></section>
+      <section id="section-task"></section>
     </main>
     <script type="module" src="script.js"></script>
     <script

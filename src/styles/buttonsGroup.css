@@ -1,9 +1,10 @@
 @import url(./colors.css);
 
-#buttons-goup {
+#buttons-group {
   display: flex;
   justify-content: space-around;
-  width: 80%;
+  width: 90%;
+  overflow-x: scroll;
 }
 
 #buttons-group > button {
@@ -15,6 +16,7 @@
   font-weight: 700;
   font-size: 17px;
   line-height: 20px;
+  cursor: pointer;
   color: var(--light-color);
 }
 
@@ -41,5 +43,5 @@
 }
 
 .active {
-  width: 250px;
+  width: 650px;
 }
