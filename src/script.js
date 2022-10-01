@@ -40,13 +40,14 @@ $selector("#save-storage").addEventListener("click", () =>
 
 //add and remove active class in buttons week days
 $selectorAll(".button-weekday").forEach((button) =>
-  button.addEventListener("click", (e) => {
+  button.addEventListener("click", () => {
+    $selector("#table").innerHTML = "";
     utils.removeClassActive();
     button.classList.add("active");
   })
 );
 
-//add task
+//add task and in screen
 $selector("#add-task").addEventListener("click", (e) => {
   e.preventDefault();
   const task = $selector("#input-task").value;
@@ -56,8 +57,14 @@ $selector("#add-task").addEventListener("click", (e) => {
   if (!utils.isValid(task, weekday, hours))
     $selector("span").innerText = "* Todos os capos devem ser preenchidos";
 
-  utils.insertTask(hours, task, "#table");
+  utils.insertTaskInMemory(weekday, hours, task);
 });
+
+$selectorAll(".button-weekday").forEach((button) =>
+  button.addEventListener("click", ({ target }) => {
+    utils.inserTaskInWeeday(target);
+  })
+);
 
 //remove task
 $selector("#delete-task").addEventListener("click", (e) => {
