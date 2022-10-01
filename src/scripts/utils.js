@@ -51,3 +51,26 @@ export const removeClassActive = () => {
     button.classList.remove("active")
   );
 };
+
+export const isValid = (task, weekday, hours) => {
+  if (!task || !weekday || !hours) return false;
+  return true;
+};
+
+export const insertTask = (hour, task, parentEl) => {
+  const tr = document.createElement("tr");
+  const td = document.createElement("td");
+
+  const contentHours = document.createTextNode(`${hour}`);
+  const contentTask = document.createTextNode(`${task}`);
+
+  const tdHours = td.appendChild(contentHours);
+  const tdTask = td.appendChild(contentTask);
+
+  tr.appendChild(tdHours);
+  tr.appendChild(tdTask);
+
+  const parentTag = $selector(`${parentEl}`);
+
+  parentTag.appendChild(tr);
+};

@@ -53,7 +53,10 @@ $selector("#add-task").addEventListener("click", (e) => {
   const weekday = $selector("#select-weeks").value;
   const hours = $selector("#select-hours").value;
 
-  console.log(task, weekday, hours);
+  if (!utils.isValid(task, weekday, hours))
+    $selector("span").innerText = "* Todos os capos devem ser preenchidos";
+
+  utils.insertTask(hours, task, "#table");
 });
 
 //remove task

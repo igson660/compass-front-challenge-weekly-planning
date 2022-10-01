@@ -12,9 +12,15 @@
   background-color: var(--light-color-green);
 }
 
+span {
+  color: var(--light-color-red);
+  margin-left: 150px;
+}
+
 main {
   padding: auto;
   overflow-y: scroll;
+  max-height: 65vh;
 }
 
 main > div {

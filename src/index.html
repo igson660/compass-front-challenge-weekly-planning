@@ -28,10 +28,10 @@
         </p>
       </article>
       <article class="buttons-header__container">
-        <button class="bgcolor-green buttons" id="save-storage">
+        <button class="bgcolor-green buttons" id="save-storage" type="button">
           Salvar localStorage
         </button>
-        <button class="bgcolor-red buttons" id="delete-storage">
+        <button class="bgcolor-red buttons" id="delete-storage" type="button">
           Excluir localStorage
         </button>
       </article>
@@ -46,20 +46,22 @@
         placeholder="Atividade"
         class="border-green"
         id="input-task"
+        required
       />
       <select name="weeks" id="select-weeks" class="border-green"></select>
       <select name="hours" id="select-hours" class="border-green">
         <option selected>00h12m</option>
       </select>
-      <button class="bgcolor-green buttons" id="add-task">
+      <button class="bgcolor-green buttons" id="add-task" type="submit">
         <i class="fa-regular fa-plus"></i>
         Adicionar Atividade
       </button>
-      <button class="bgcolor-red buttons" id="delete-task">
+      <button class="bgcolor-red buttons" id="delete-task" type="button">
         <i class="fa-solid fa-minus"></i>
         Excluir Atividade
       </button>
     </form>
+    <span></span>
     <main>
       <div>
         <div id="container-hours">
@@ -67,8 +69,7 @@
         </div>
         <div id="buttons-group"></div>
       </div>
-      <section id="section-hours"></section>
-      <section id="section-task"></section>
+      <table id="table"></table>
     </main>
     <script type="module" src="script.js"></script>
     <script
