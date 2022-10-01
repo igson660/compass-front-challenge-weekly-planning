@@ -1,4 +1,5 @@
 const $selector = document.querySelector.bind(document);
+const $selectorAll = document.querySelectorAll.bind(document);
 
 export const getDate = () => {
   const fullMonths = [
@@ -28,12 +29,25 @@ export const getHour = () => {
   }`;
 };
 
-export const insertContent = (childEl, contentEl, parentEl, rPrecious) => {
+export const insertContent = (
+  childEl,
+  contentEl,
+  parentEl,
+  rPrecious,
+  addClass
+) => {
   const childTag = document.createElement(`${childEl}`);
   const content = document.createTextNode(`${contentEl}`);
   const parentTag = $selector(`${parentEl}`);
 
   rPrecious ? (parentTag.innerHTML = "") : false;
+  addClass ? childTag.classList.add(addClass) : false;
   childTag.appendChild(content);
   parentTag.appendChild(childTag);
+};
+
+export const removeClassActive = () => {
+  $selectorAll(".button-weekday").forEach((button) =>
+    button.classList.remove("active")
+  );
 };

@@ -2,10 +2,21 @@
 @import url(./styles/header.css);
 @import url(./styles/colors.css);
 @import url(./styles/form.css);
+@import url(./styles/groupButtons.css);
 
 .bgcolor-red {
   background-color: var(--light-color-red);
 }
+
 .bgcolor-green {
   background-color: var(--light-color-green);
+}
+
+main > div {
+  margin-top: 20px;
+  display: flex;
+}
+
+div > p {
+  width: 10%;
 }

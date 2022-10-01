@@ -28,8 +28,12 @@
         </p>
       </article>
       <article class="buttons-header__container">
-        <button class="bgcolor-green buttons">Salvar localStorage</button>
-        <button class="bgcolor-red buttons">Excluir localStorage</button>
+        <button class="bgcolor-green buttons" id="save-storage">
+          Salvar localStorage
+        </button>
+        <button class="bgcolor-red buttons" id="delete-storage">
+          Excluir localStorage
+        </button>
       </article>
       <article class="date-header__container">
         <p class="full-hours"></p>
@@ -51,6 +55,13 @@
         Excluir Atividade
       </button>
     </form>
+    <main>
+      <div>
+        <p>Horário</p>
+        <div id="buttons-group"></div>
+      </div>
+      <table></table>
+    </main>
     <script type="module" src="script.js"></script>
     <script
       src="https://kit.fontawesome.com/9b72e5cad6.js"
