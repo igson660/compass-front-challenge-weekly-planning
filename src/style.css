@@ -3,6 +3,7 @@
 @import url(./styles/colors.css);
 @import url(./styles/form.css);
 @import url(./styles/buttonsGroup.css);
+@import url(./styles/card.css);
 
 .bgcolor-red {
   background-color: var(--light-color-red);
@@ -20,7 +21,10 @@ span {
 main {
   padding: auto;
   overflow-y: scroll;
-  max-height: 65vh;
+  height: 70vh;
+  background: url(./assets/bola-LogoCompasso\ 1.svg) no-repeat;
+  background-size: 30%;
+  background-position: 70vw 30vh;
 }
 
 main > div {
@@ -32,7 +36,7 @@ main > div {
 #container-hours {
   width: 95px;
   height: 75px;
-  box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+  box-shadow: 0px 4px 24px #a8a8a840;
   border-radius: 10px;
   display: flex;
   justify-content: center;

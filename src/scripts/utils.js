@@ -1,5 +1,6 @@
 const $selector = document.querySelector.bind(document);
 const $selectorAll = document.querySelectorAll.bind(document);
+const $createEl = document.createElement.bind(document);
 
 const sunday = [];
 const monday = [];
@@ -67,18 +68,24 @@ export const isValid = (task, weekday, hours) => {
   return true;
 };
 
-export const insertTaskTable = (hour, task, parentEl) => {
-  const tr = document.createElement("tr");
-  const td = document.createElement("td");
+export const insertTaskTable = (hour, task, parentEl, bColor) => {
+  const tr = $createEl("tr");
+  const tdHours = $createEl("div");
+  const tdTask = $createEl("div");
+  const button = $createEl("button");
 
-  const contentHours = document.createTextNode(`${hour}`);
-  const contentTask = document.createTextNode(`${task}`);
-
-  const tdHours = td.appendChild(contentHours);
-  const tdTask = td.appendChild(contentTask);
-
+  tdHours.innerText = hour;
+  tdHours.classList.add("card-hours");
   tr.appendChild(tdHours);
+
+  tdTask.innerText = task;
+  tdTask.classList.add("card-task");
+  tdTask.style.borderColor = bColor;
   tr.appendChild(tdTask);
+
+  button.innerText = "Apagar";
+  button.classList.add("card-button");
+  tdTask.appendChild(button);
 
   const parentTag = $selector(`${parentEl}`);
 
@@ -122,11 +129,11 @@ export const insertTaskInMemory = (weekday, hour, task) => {
   }
 };
 
-export const inserTaskInWeeday = (target) => {
+export const inserTaskInWeekday = (target) => {
   if (target.innerText === "Domingo") {
     if (allTasks.sunday) {
       allTasks.sunday.forEach((item) =>
-        insertTaskTable(item.hour, item.task, "#table")
+        insertTaskTable(item.hour, item.task, "#table", "#ff6666")
       );
     }
   }
@@ -134,7 +141,7 @@ export const inserTaskInWeeday = (target) => {
   if (target.innerText === "Segunda-feira") {
     if (allTasks.monday) {
       allTasks.monday.forEach((item) =>
-        insertTaskTable(item.hour, item.task, "#table")
+        insertTaskTable(item.hour, item.task, "#table", "#ffa246")
       );
     }
   }
@@ -142,7 +149,7 @@ export const inserTaskInWeeday = (target) => {
   if (target.innerText === "Terça-feira") {
     if (allTasks.tuesday) {
       allTasks.tuesday.forEach((item) =>
-        insertTaskTable(item.hour, item.task, "#table")
+        insertTaskTable(item.hour, item.task, "#table", "#35e185")
       );
     }
   }
@@ -150,7 +157,7 @@ export const inserTaskInWeeday = (target) => {
   if (target.innerText === "Quarta-feira") {
     if (allTasks.wednesday) {
       allTasks.wednesday.forEach((item) =>
-        insertTaskTable(item.hour, item.task, "#table")
+        insertTaskTable(item.hour, item.task, "#table", "#6688ff")
       );
     }
   }
@@ -158,7 +165,7 @@ export const inserTaskInWeeday = (target) => {
   if (target.innerText === "Quinta-feira") {
     if (allTasks.thursday) {
       allTasks.thursday.forEach((item) =>
-        insertTaskTable(item.hour, item.task, "#table")
+        insertTaskTable(item.hour, item.task, "#table", "#b266ff")
       );
     }
   }
@@ -166,7 +173,7 @@ export const inserTaskInWeeday = (target) => {
   if (target.innerText === "Sexta-feira") {
     if (allTasks.friday) {
       allTasks.friday.forEach((item) =>
-        insertTaskTable(item.hour, item.task, "#table")
+        insertTaskTable(item.hour, item.task, "#table", "#66d1ff")
       );
     }
   }
@@ -174,7 +181,7 @@ export const inserTaskInWeeday = (target) => {
   if (target.innerText === "Sábado") {
     if (allTasks.saturday) {
       allTasks.saturday.forEach((item) =>
-        insertTaskTable(item.hour, item.task, "#table")
+        insertTaskTable(item.hour, item.task, "#table", "#ff66d4")
       );
     }
   }

@@ -35,7 +35,7 @@ $selector("#delete-storage").addEventListener("click", () =>
 
 //add in local storages
 $selector("#save-storage").addEventListener("click", () =>
-  console.log("teste")
+  localStorage.setItem("tasks", JSON.stringify(utils.allTasks))
 );
 
 //add and remove active class in buttons week days
@@ -62,12 +62,17 @@ $selector("#add-task").addEventListener("click", (e) => {
 
 $selectorAll(".button-weekday").forEach((button) =>
   button.addEventListener("click", ({ target }) => {
-    utils.inserTaskInWeeday(target);
+    const task = $selector("#input-task").value;
+    const weekday = $selector("#select-weeks").value;
+    const hours = $selector("#select-hours").value;
+    if (utils.isValid(task, weekday, hours)) utils.inserTaskInWeekday(target);
   })
 );
 
 //remove task
 $selector("#delete-task").addEventListener("click", (e) => {
   e.preventDefault();
-  console.log("button delete");
+  $selector("#input-task").value = "";
+  $selector("#select-weeks").value = "";
+  $selector("#select-hours").value = "";
 });
