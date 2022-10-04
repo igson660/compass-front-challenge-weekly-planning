@@ -10,6 +10,7 @@ tr {
 }
 
 .card-hours {
+  font-family: "Nunito", sans-serif;
   box-sizing: border-box;
   width: 85px;
   height: 85px;
@@ -60,10 +61,9 @@ tr {
 
 hr {
   position: absolute;
-  width: 190vw;
-  height: 5px;
-  margin: 0 0 30px 0;
+  width: 97vw;
+  height: 3px;
   background-color: var(--color-conflict);
   border: none;
-  z-index: 100;
+  left: 30px;
 }

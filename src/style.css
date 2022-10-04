@@ -5,6 +5,10 @@
 @import url(./styles/buttonsGroup.css);
 @import url(./styles/card.css);
 
+body {
+  font-family: "Poppins", sans-serif;
+}
+
 .bgcolor-red {
   background-color: var(--light-color-red);
 }
