@@ -36,8 +36,8 @@
 }
 
 #select-hours {
-  background-position: 60px center;
-  width: 102px;
+  width: 110px;
+  padding:  0 5px;
 }
 
 .border-green {
