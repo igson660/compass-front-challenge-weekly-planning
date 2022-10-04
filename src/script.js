@@ -30,13 +30,16 @@ fullWeeks.forEach((week) =>
 
 //remove local storage
 $selector("#delete-storage").addEventListener("click", () =>
-  storage.removeItem("tasks")
+  localStorage.removeItem("tasks")
 );
 
 //add in local storage
-$selector("#save-storage").addEventListener("click", () =>
-  localStorage.setItem("tasks", JSON.stringify(utils.allTasks))
-);
+$selector("#save-storage").addEventListener("click", () => {
+  const teste = [...utils.allTasks];
+  console.log(teste);
+  console.log(utils.allTasks);
+  localStorage.setItem("tasks", JSON.stringify(utils.allTasks));
+});
 
 //add and remove active class in buttons week days
 $selectorAll(".button-weekday").forEach((button) =>
