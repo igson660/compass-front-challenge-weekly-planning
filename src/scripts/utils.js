@@ -2,15 +2,15 @@ const $selector = document.querySelector.bind(document);
 const $selectorAll = document.querySelectorAll.bind(document);
 const $createEl = document.createElement.bind(document);
 
-const sunday = [];
-const monday = [];
-const tuesday = [];
-const wednesday = [];
-const thursday = [];
-const friday = [];
-const saturday = [];
+export const sunday = [];
+export const monday = [];
+export const tuesday = [];
+export const wednesday = [];
+export const thursday = [];
+export const friday = [];
+export const saturday = [];
 
-export let allTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+export let allTasks = [];
 
 export const getDate = () => {
   const fullMonths = [
@@ -284,7 +284,6 @@ const insertTaskWithHourIqual = (weekday, fullTask) => {
 
 export const deleteCard = (weekday, index) => {
   if (weekday === "Domingo") {
-    console.log("aqui");
     allTasks.sunday.forEach(({ task }) => task.splice(index, 1));
   }
 

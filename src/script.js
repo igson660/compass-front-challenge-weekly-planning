@@ -35,10 +35,18 @@ $selector("#delete-storage").addEventListener("click", () =>
 
 //add in local storage
 $selector("#save-storage").addEventListener("click", () => {
-  const teste = [...utils.allTasks];
-  console.log(teste);
-  console.log(utils.allTasks);
-  localStorage.setItem("tasks", JSON.stringify(utils.allTasks));
+  localStorage.setItem(
+    "tasks",
+    JSON.stringify({
+      sunday: utils.allTasks.sunday,
+      monday: utils.allTasks.monday,
+      tuesday: utils.allTasks.tuesday,
+      wednesday: utils.allTasks.wednesday,
+      thursday: utils.allTasks.thursday,
+      friday: utils.allTasks.friday,
+      saturday: utils.allTasks.saturday,
+    })
+  );
 });
 
 //add and remove active class in buttons week days
