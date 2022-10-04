@@ -64,28 +64,40 @@ export const removeClassActive = () => {
 };
 
 export const isValid = (task, weekday, hours) => {
-  if (!task || !weekday || !hours) return false;
+  if (!task || !weekday || hours.length <= 1) return false;
   return true;
 };
 
-export const insertTaskTable = (hour, task, parentEl, bColor) => {
+export const insertTaskTable = (hour, tasks, parentEl, bColor) => {
   const tr = $createEl("tr");
   const tdHours = $createEl("div");
-  const tdTask = $createEl("div");
-  const button = $createEl("button");
 
   tdHours.innerText = hour;
   tdHours.classList.add("card-hours");
   tr.appendChild(tdHours);
 
-  tdTask.innerText = task;
-  tdTask.classList.add("card-task");
-  tdTask.style.borderColor = bColor;
-  tr.appendChild(tdTask);
+  if (tasks.length > 1) {
+    const hr = $createEl("hr");
+    tdHours.appendChild(hr);
+  }
 
-  button.innerText = "Apagar";
-  button.classList.add("card-button");
-  tdTask.appendChild(button);
+  tasks.forEach((task) => {
+    const button = $createEl("button");
+    const tdTask = $createEl("div");
+    tdTask.innerText = task;
+    tdTask.classList.add("card-task");
+    tdTask.style.borderColor = bColor;
+    tr.appendChild(tdTask);
+
+    button.innerText = "Apagar";
+    button.classList.add("card-button");
+    tdTask.appendChild(button);
+
+    if (tasks.length > 1) {
+      tdTask.classList.add("card-task__reapeat");
+      tdHours.classList.add("card-hours__reapeat");
+    }
+  });
 
   const parentTag = $selector(`${parentEl}`);
 
@@ -94,36 +106,50 @@ export const insertTaskTable = (hour, task, parentEl, bColor) => {
 
 export const insertTaskInMemory = (weekday, hour, task) => {
   if (weekday === "Domingo") {
+    if (allTasks.sunday)
+      return insertTaskWithHourIqual(allTasks.monday, { hour, task });
     sunday.push({ task, hour });
     allTasks.sunday = sunday;
   }
 
   if (weekday === "Segunda-feira") {
-    monday.push({ task, hour });
+    if (allTasks.monday)
+      return insertTaskWithHourIqual(allTasks.monday, { hour, task });
+    monday.push({ task: [task], hour });
     allTasks.monday = monday;
   }
 
   if (weekday === "Terça-feira") {
+    if (allTasks.tuesday)
+      return insertTaskWithHourIqual(allTasks.monday, { hour, task });
     tuesday.push({ task, hour });
     allTasks.tuesday = tuesday;
   }
 
   if (weekday === "Quarta-feira") {
+    if (allTasks.wednesday)
+      return insertTaskWithHourIqual(allTasks.monday, { hour, task });
     wednesday.push({ task, hour });
     allTasks.wednesday = wednesday;
   }
 
   if (weekday === "Quinta-feira") {
+    if (allTasks.thursday)
+      return insertTaskWithHourIqual(allTasks.monday, { hour, task });
     thursday.push({ task, hour });
     allTasks.thursday = tuesday;
   }
 
   if (weekday === "Sexta-feira") {
+    if (allTasks.friday)
+      return insertTaskWithHourIqual(allTasks.monday, { hour, task });
     friday.push({ task, hour });
     allTasks.friday = friday;
   }
 
   if (weekday === "Sábado") {
+    if (allTasks.saturday)
+      return insertTaskWithHourIqual(allTasks.monday, { hour, task });
     saturday.push({ task, hour });
     allTasks.saturday = saturday;
   }
@@ -185,4 +211,28 @@ export const inserTaskInWeekday = (target) => {
       );
     }
   }
+};
+
+const searchIqual = (weekday, taskHour) => {
+  return weekday.some(({ hour }) => hour === taskHour);
+};
+
+const insertTaskWithHourIqual = (weekday, fullTask) => {
+  if (searchIqual(weekday, fullTask.hour)) {
+    let indexArray = 0;
+    const repeatTask = weekday.find((task) => task.hour === fullTask.hour);
+    weekday.forEach((item, index) =>
+      item.hour === fullTask.hour ? (indexArray = index) : false
+    );
+
+    monday.splice(indexArray, 1);
+
+    repeatTask.task.push(fullTask.task);
+    monday.push(repeatTask);
+    allTasks.monday = monday;
+    return;
+  }
+
+  monday.push({ task: [fullTask.task], hour: fullTask.hour });
+  allTasks.monday = monday;
 };

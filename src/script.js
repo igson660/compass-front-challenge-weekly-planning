@@ -33,7 +33,7 @@ $selector("#delete-storage").addEventListener("click", () =>
   storage.removeItem("tasks")
 );
 
-//add in local storages
+//add in local storage
 $selector("#save-storage").addEventListener("click", () =>
   localStorage.setItem("tasks", JSON.stringify(utils.allTasks))
 );
@@ -52,12 +52,14 @@ $selector("#add-task").addEventListener("click", (e) => {
   e.preventDefault();
   const task = $selector("#input-task").value;
   const weekday = $selector("#select-weeks").value;
-  const hours = $selector("#select-hours").value;
+  const hours = $selector("#select-hours").value.split(":");
 
-  if (!utils.isValid(task, weekday, hours))
-    $selector("span").innerText = "* Todos os capos devem ser preenchidos";
+  if (!utils.isValid(task, weekday, hours)) {
+    return ($selector("span").innerText =
+      "* Todos os capos devem ser preenchidos");
+  }
 
-  utils.insertTaskInMemory(weekday, hours, task);
+  utils.insertTaskInMemory(weekday, `${hours[0]}h:${hours[1]}m`, task);
 });
 
 $selectorAll(".button-weekday").forEach((button) =>
@@ -65,7 +67,10 @@ $selectorAll(".button-weekday").forEach((button) =>
     const task = $selector("#input-task").value;
     const weekday = $selector("#select-weeks").value;
     const hours = $selector("#select-hours").value;
-    if (utils.isValid(task, weekday, hours)) utils.inserTaskInWeekday(target);
+
+    utils.isValid(task, weekday, hours)
+      ? utils.inserTaskInWeekday(target)
+      : false;
   })
 );
 

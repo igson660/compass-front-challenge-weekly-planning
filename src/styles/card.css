@@ -49,3 +49,17 @@ tr {
   color: var(--light-color);
   border: none;
 }
+
+.card-task__reapeat {
+  border-color: var(--color-conflict) !important;
+}
+
+hr {
+  position: absolute;
+  width: 100vw;
+  height: 5px;
+  margin: 0 0 30px 0;
+  background-color: var(--color-conflict);
+  border: none;
+  z-index: 100;
+}

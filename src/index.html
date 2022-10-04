@@ -49,9 +49,22 @@
         required
       />
       <select name="weeks" id="select-weeks" class="border-green"></select>
-      <select name="hours" id="select-hours" class="border-green">
-        <option selected>00h12m</option>
-      </select>
+      <input
+        id="select-hours"
+        class="border-green"
+        type="time"
+        list="list"
+        step="120"
+        min="06:00"
+        max="20:00"
+      />
+      <datalist id="list">
+        <option value="08:30">08:30</option>
+        <option value="09:00">09:00</option>
+        <option value="09:30">09:30</option>
+        <option value="10:00">10:00</option>
+      </datalist>
+
       <button class="bgcolor-green buttons" id="add-task" type="submit">
         <i class="fa-regular fa-plus"></i>
         Adicionar Atividade

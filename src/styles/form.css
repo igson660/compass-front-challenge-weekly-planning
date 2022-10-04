@@ -8,7 +8,7 @@
   justify-content: space-around;
 }
 
-.form > input {
+#input-task {
   width: 324px;
   padding-left: 100px;
 }
